@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <!-- #FFFFFF은 눈이 아파아서 실제로 하얀색은 아래 색으로 많이 쓴다고 함 -->
+    <color name="white">#FAFAFA</color>
+    <color name="black">#000000</color>
+
+
+</resources>
