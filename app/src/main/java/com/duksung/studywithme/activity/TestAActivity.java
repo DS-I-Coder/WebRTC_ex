@@ -49,8 +49,7 @@ public class TestAActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<TestModel> call, Response<TestModel> response) {
                         // 통신 성공
-                        TestModel testModel = response.body();
-
+                        TestModel testModel = response.body();  //서버에서 받아온 json 형태 받음
 
                         //화면 전환 할 때 intent에다가 값을 넣을 수 있음
                         Intent intent = new Intent(getApplicationContext(), TestBActivity.class);
@@ -64,7 +63,10 @@ public class TestAActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(Call<TestModel> call, Throwable t) {
                         // 통신 실패
-                        Log.d("log","실패");
+                        Log.d("sssss", "실패");
+                        //애뮬레이터 여러개 사용하거나 본인 휴대폰 기기 연결해서 쓸 때, logcat 왼쪽 상단에
+                        //실행한 기기로 잘 되어있나 확인.
+                        t.printStackTrace();
                     }
                 });
 
