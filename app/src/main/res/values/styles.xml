@@ -25,4 +25,11 @@
         <item name="android:background">@drawable/button_white_border</item>
         <item name="android:textColor">@color/black</item>
     </style>
+
+    <style name="OutlineRectangle">
+        <item name="android:background">@drawable/outline_rectangle</item>
+        <item name="android:textSize">15px</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
 </resources>
