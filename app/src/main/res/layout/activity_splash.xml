@@ -31,7 +31,7 @@
 
         <Button
             android:id="@+id/btn_register"
-            style="@style/ButtonBlack"
+            style="@style/Button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"

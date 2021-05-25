@@ -11,7 +11,7 @@
     </style>
 
     
-    <style name="ButtonBlack">
+    <style name="Button">
         <item name="android:background">@drawable/button_black_border</item>
         <item name="android:textSize">12dp</item>
         <item name="android:textColor">@color/white</item>
@@ -22,7 +22,7 @@
 
     <!-- 앱 내에서 사용하는 버튼과 다른 속성은 똑같은데, 배경색과 텍스트컬러만 다른 경우
          parent로 속성을 받아서 일부 수정 or 추가 가능 -->
-    <style name="ButtonWhite" parent="ButtonBlack">
+    <style name="ButtonWhite" parent="Button">
         <item name="android:background">@drawable/button_white_border</item>
         <item name="android:textColor">@color/black</item>
     </style>
