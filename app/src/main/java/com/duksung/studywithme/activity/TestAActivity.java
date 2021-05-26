@@ -50,7 +50,9 @@ public class TestAActivity extends AppCompatActivity {
                     public void onResponse(Call<TestModel> call, Response<TestModel> response) {
                         // 통신 성공
                         TestModel testModel = response.body();  //서버에서 받아온 json 형태 받음
-
+                        Log.d("ssssszs", testModel.getAddress());
+                        Log.d("ssssszs", testModel.getAge()+"");
+                        Log.d("ssssszs", testModel.getName());
                         //화면 전환 할 때 intent에다가 값을 넣을 수 있음
                         Intent intent = new Intent(getApplicationContext(), TestBActivity.class);
                         intent.putExtra("name", testModel.getName());

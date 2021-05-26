@@ -14,8 +14,7 @@ public interface RetrofitService {
     Call<TestModel> getUserCheck(@Field("name") String name,
                                  @Field("age") int age,
                                  @Field("address") String address);
-
-
+    
     /* GET 형태
     @GET("주소")
     Call<반환모델> 함수이름(@Query("변수") 타입 변수명)
