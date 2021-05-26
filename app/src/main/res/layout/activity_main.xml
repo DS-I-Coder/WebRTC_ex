@@ -4,28 +4,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.MainActivity">
+    tools:context=".activity.MainActivity"
+
+    android:paddingStart="15dp"
+    android:paddingEnd="15dp"
+    android:paddingTop="26dp">
 
     <TextView
         android:id="@+id/text_title"
+        style="@style/TextMainTitle"
+        android:text="Study with Me!" />
+
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Study with Me!"/>
+        android:background="@drawable/image_circle"
+        android:layout_marginEnd="8dp"
+        android:layout_alignParentEnd="true"/>
+
+    <EditText
+        android:id="@+id/et_searchBar"
+        style="@style/OutlineRectangle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="19dp"
+        android:layout_below="@+id/text_title"
+        android:hint="Search all category"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_below="@id/text_title">
+        android:layout_below="@id/et_searchBar">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_bold"
+            style="@style/Text13Bold"
             android:text="BEST MEMEBER"
-            android:textColor="@color/black"/>
+            />
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="131dp"
+            android:backgroundTint="#CC9C8F"/>
 
+        <TextView
+            style="@style/Text13Bold"
+            android:text="STUDY ROOM" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="#CC9C8F"/>
     </LinearLayout>
+
+    <!--floating button? -->
+
 
 </RelativeLayout>
