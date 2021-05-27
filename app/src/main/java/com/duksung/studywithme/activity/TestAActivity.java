@@ -54,9 +54,11 @@ public class TestAActivity extends AppCompatActivity {
 
                         //화면 전환 할 때 intent에다가 값을 넣을 수 있음
                         Intent intent = new Intent(getApplicationContext(), TestBActivity.class);
-                        intent.putExtra("name", testModel.getName());
-                        intent.putExtra("age", testModel.getAge());
-                        intent.putExtra("address", testModel.getAddress());
+                        if (testModel != null) {
+                            intent.putExtra("name", testModel.getName());
+                            intent.putExtra("age", testModel.getAge());
+                            intent.putExtra("address", testModel.getAddress());
+                        }
                         startActivity(intent);
 
                     }

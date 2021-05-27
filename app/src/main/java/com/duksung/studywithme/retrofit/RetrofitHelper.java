@@ -9,7 +9,7 @@ public class RetrofitHelper {
     public static Retrofit getRetrofit(){
         if(retrofit == null){
             retrofit = new Retrofit.Builder()
-                    .baseUrl("http://192.168.0.21:8000") // ip주소 뒤에는 포트번호
+                    .baseUrl("http://192.168.214.1:8000") // ip주소 뒤에는 포트번호
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }
