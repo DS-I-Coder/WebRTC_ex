@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.SearchActivity"
+    android:paddingStart="15dp"
+    android:paddingEnd="15dp"
+    android:paddingTop="26dp">
+
+
+    <TextView
+        android:id="@+id/text_registerStep2Title"
+        style="@style/TextMainTitle"
+        android:layout_marginBottom="23dp"
+        android:text="Register" />
+
+    <EditText
+        android:id="@+id/et_registerName"
+        style="@style/OutlineRectangle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_registerStep2Title"
+        android:layout_marginBottom="23dp"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/button_register_signup"
+        style="@style/Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_registerName"
+        android:layout_marginBottom="23dp"
+        android:text="Sign up" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_register_signup"
+        android:text="By signing up, you agree to Photo’s Terms of Service and Privacy Policy." />
+</RelativeLayout>

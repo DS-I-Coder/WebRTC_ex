@@ -1,18 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.MainActivity">
+    tools:context=".activity.MainActivity"
+
+    android:paddingStart="15dp"
+    android:paddingEnd="15dp"
+    android:paddingTop="26dp">
 
     <TextView
+        android:id="@+id/text_title"
+        style="@style/TextMainTitle"
+        android:text="Study with Me!" />
+
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@drawable/image_circle"
+        android:layout_marginEnd="8dp"
+        android:layout_alignParentEnd="true"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+        android:id="@+id/et_searchBar"
+        style="@style/OutlineRectangle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="19dp"
+        android:layout_below="@+id/text_title"
+        android:hint="Search all category"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@id/et_searchBar">
+
+        <TextView
+            style="@style/Text13Bold"
+            android:text="BEST MEMEBER"
+            />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="131dp"
+            android:backgroundTint="#CC9C8F"/>
+
+        <TextView
+            style="@style/Text13Bold"
+            android:text="STUDY ROOM" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="#CC9C8F"/>
+    </LinearLayout>
+
+    <!--floating button? -->
+
+
+</RelativeLayout>

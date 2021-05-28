@@ -16,6 +16,7 @@
         <item name="android:textSize">12dp</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:layout_gravity">center</item>
+
         <!--각종 속성 정의 -->
     </style>
 
@@ -23,6 +24,30 @@
          parent로 속성을 받아서 일부 수정 or 추가 가능 -->
     <style name="ButtonWhite" parent="Button">
         <item name="android:background">@drawable/button_white_border</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="OutlineRectangle">
+        <item name="android:background">@drawable/outline_rectangle</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+    
+    
+    <style name="TextMainTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/comfortaa_regular</item>
+    </style>
+    
+    <style name="Text13Bold">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">13sp</item>
+        <item name="fontFamily">@font/roboto_bold</item>
         <item name="android:textColor">@color/black</item>
     </style>
 </resources>
