@@ -12,19 +12,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.SearchActivity"></activity>
-        <activity android:name=".activity.TestBActivity" />
-        <activity android:name=".activity.TestAActivity">
+        <activity android:name=".activity.SearchActivity">
 
-            <!-- 앱 실행시, 맨 처음에 보여지는 화면 설정. ex) 로딩화면 -->
+        </activity>
+
+        <activity android:name=".activity.SplashActivity" />
+        <activity android:name=".activity.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
-        <activity android:name=".activity.SplashActivity" />
-        <activity android:name=".activity.MainActivity" />
     </application>
 
 </manifest>
