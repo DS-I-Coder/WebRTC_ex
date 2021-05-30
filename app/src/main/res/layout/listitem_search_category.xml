@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:layout_marginStart="12dp">
+
+    <TextView
+        android:id="@+id/tv_category_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="카테고리"
+        android:gravity="center|left"
+        android:textSize="17sp"
+        android:textColor="#919191"
+        android:fontFamily="@font/roboto_regular"/>
+
+</RelativeLayout>
