@@ -58,6 +58,7 @@ public class TestAActivity extends AppCompatActivity {
                         intent.putExtra("name", testModel.getName());
                         intent.putExtra("age", testModel.getAge());
                         intent.putExtra("address", testModel.getAddress());
+
                         startActivity(intent);
 
                     }
