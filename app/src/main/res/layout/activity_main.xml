@@ -20,24 +20,24 @@
         android:layout_height="wrap_content"
         android:background="@drawable/image_circle"
         android:layout_marginEnd="8dp"
-        android:layout_alignParentEnd="true"/>
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/text_title"/>
 
-    <EditText
-        android:id="@+id/et_searchBar"
+    <TextView
+        android:id="@+id/tv_searchBar"
         style="@style/OutlineRectangle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:layout_marginBottom="19dp"
         android:layout_below="@+id/text_title"
-        android:hint="Search all category"
-        />
+        android:hint="Search all category" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_below="@id/et_searchBar">
+        android:layout_below="@id/tv_searchBar">
 
         <TextView
             style="@style/Text13Bold"

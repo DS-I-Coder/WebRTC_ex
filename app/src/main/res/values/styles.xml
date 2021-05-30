@@ -13,10 +13,10 @@
     
     <style name="Button">
         <item name="android:background">@drawable/button_black_border</item>
-        <item name="android:textSize">12dp</item>
+        <item name="android:textSize">13dp</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:layout_gravity">center</item>
-
+        <item name="fontFamily">@font/roboto_bold</item>
         <!--각종 속성 정의 -->
     </style>
 
