@@ -5,7 +5,9 @@ import com.duksung.studywithme.model.TestModel;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface RetrofitService {
 
@@ -19,4 +21,9 @@ public interface RetrofitService {
     @GET("주소")
     Call<반환모델> 함수이름(@Query("변수") 타입 변수명)
     */
+//    @GET("")
+//    Call<TestModel> getUser(@Query("name") String name,
+//                            @Query("age") int age,
+//                            @Query("address") String address);
+
 }
