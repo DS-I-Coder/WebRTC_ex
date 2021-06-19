@@ -58,4 +58,10 @@
         <item name="fontFamily">@font/roboto_regular</item>
         <item name="android:textColor">@color/black</item>
     </style>
+
+    <style name="CallActivityTheme" parent="android:Theme.Black">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
 </resources>
