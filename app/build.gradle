@@ -42,4 +42,7 @@ dependencies {
     //retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.5.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+
+    //MP Chart: 막대그래프, 파이차트 등 각종 그래프
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 }

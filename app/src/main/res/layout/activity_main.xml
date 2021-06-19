@@ -20,6 +20,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/image_circle"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="5dp"
         android:layout_alignParentEnd="true"
         android:layout_alignBottom="@+id/text_title"/>
 
@@ -44,19 +45,32 @@
             android:text="BEST MEMEBER"
             />
 
-        <ImageView
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/main_viewpager"
             android:layout_width="match_parent"
-            android:layout_height="131dp"
-            android:backgroundTint="#CC9C8F"/>
+            android:overScrollMode="always"
+            android:clipToPadding="false"
+            android:layout_height="131dp"/>
 
         <TextView
             style="@style/Text13Bold"
-            android:text="STUDY ROOM" />
+            android:text="STUDY ROOM"
+            android:layout_marginBottom="3dp"/> <!-- -->
 
-        <ImageView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:backgroundTint="#CC9C8F"/>
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/img1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/button_white_border"
+                android:backgroundTint="#E4E4E4"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"/>
+
+        </RelativeLayout>
     </LinearLayout>
 
     <!--floating button? -->
