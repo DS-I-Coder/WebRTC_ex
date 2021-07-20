@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingStart="15dp"
+    android:paddingTop="26dp"
+    android:paddingEnd="15dp"
+    tools:context=".activity.MyPageActivity">
+
+    <TextView
+        android:id="@+id/text_loginTitle"
+        style="@style/TextMainTitle"
+        android:layout_marginBottom="23dp"
+        android:text="My Page" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:srcCompat="@drawable/image_circle" />
+
+        <TextView
+            android:id="@+id/tv_mypage_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_toEndOf="@id/imageView"
+            android:text="김덕성"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:text="이번주 공부 누적시간" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@id/textView8"
+            android:text="00:00:00" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="참여중인 방"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_my_study_room"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="토익 스터디"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+</LinearLayout>

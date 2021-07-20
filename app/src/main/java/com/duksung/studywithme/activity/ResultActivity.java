@@ -48,6 +48,5 @@ public class ResultActivity extends AppCompatActivity {
         adapter = new ResultAdapter(searchResult, this);
         rc_resultList.setAdapter(adapter);
 
-
     }
 }

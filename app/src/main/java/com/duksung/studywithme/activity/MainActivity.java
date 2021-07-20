@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity{
     TextView tv_searchBar;
     ViewPager viewpager;
     ImageView img_profile;
+
     List<MainBestMemberModel> models;
     MainBestMemberAdapter adapter;
     RetrofitService retrofitService = RetrofitHelper.getRetrofit().create(RetrofitService.class);
@@ -98,30 +100,39 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
-
-        // 이미지 프로필 터지로 다이얼로그 이벤트 테스트
+        img_profile = findViewById(R.id.img_profile);
 
         img_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //PauseDialog pauseDialog = new PauseDialog(MainActivity.this);
-
-                Dialog dialog = new Dialog(MainActivity.this);
-                dialog.setCanceledOnTouchOutside(false); // 다이얼로그 밖을 터치했을 때
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialog.setContentView(R.layout.dialog_pause);
-
-                final Button btn_exit = dialog.findViewById(R.id.btn_exit);
-
-                btn_exit.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-                    }
-                });
-                dialog.show();
+                Intent intent = new Intent(getApplicationContext(), MyPageActivity.class);
+                startActivity(intent);
             }
         });
+
+        // 이미지 프로필 터지로 다이얼로그 이벤트 테스트
+
+//        img_profile.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //PauseDialog pauseDialog = new PauseDialog(MainActivity.this);
+//
+//                Dialog dialog = new Dialog(MainActivity.this);
+//                dialog.setCanceledOnTouchOutside(false); // 다이얼로그 밖을 터치했을 때
+//                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+//                dialog.setContentView(R.layout.dialog_pause);
+//
+//                final Button btn_exit = dialog.findViewById(R.id.btn_exit);
+//
+//                btn_exit.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        dialog.dismiss();
+//                    }
+//                });
+//                dialog.show();
+//            }
+//        });
 
     }
 

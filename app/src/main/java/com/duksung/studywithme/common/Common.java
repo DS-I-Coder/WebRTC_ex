@@ -9,7 +9,8 @@ import java.util.Arrays;
 public class Common {
     // static final 변수 선언
 
-    public static final String BASE_SERVER_URL = "http://192.168.0.21:3000";  // ip주소
+//    public static final String BASE_SERVER_URL = "http://192.168.0.21:3000";  // ip주소
+    public static final String BASE_SERVER_URL = "http://192.168.214.1:3000";
 
     public static final String SearchRoomURL = "/mainpage/search";      // 방 검색
     public static final String GetCategoryURL = "/mainpage/category";   // 카테고리 조회

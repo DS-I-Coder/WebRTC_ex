@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.MainActivity"
+    tools:context=".activity.StudyRoomActivity"
 
     android:paddingStart="15dp"
     android:paddingEnd="15dp"
     android:paddingTop="26dp">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -22,31 +23,37 @@
             android:layout_below="@+id/text_title"
             android:text="Notice" />
 
-        <TextView
-            style="@style/Text13Bold"
-            android:text="컴퓨터공학과 중간고사 STUDY Room"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <!-- 영상처리된 화면 -->
+            <TextView
+                style="@style/Text13Bold"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="컴퓨터공학과 중간고사 STUDY Room" />
+
+
+        </RelativeLayout>
 
         <fragment
             android:layout_width="match_parent"
             android:layout_height="536dp"
-            android:layout_below="@+id/et_searchBar"
             android:layout_marginBottom="10dp"
             tools:layout="@layout/fragment_camera_view" />
 
-        <!-- 영상처리된 화면 -->
-
         <Switch
             android:id="@+id/onoffbutton"
+            style="@style/Text15Regular"
             android:layout_width="103dp"
             android:layout_height="33dp"
+            android:layout_marginLeft="285dp"
             android:text="On / Off"
-            android:textColor="#000000"
-            style="@style/Text15Regular"
-            android:layout_marginLeft="285dp"/>
+            android:textColor="#000000" />
+
+        <!-- 영상처리된 화면 -->
+
+        <!-- 영상처리된 화면 -->
 
 
     </LinearLayout>
