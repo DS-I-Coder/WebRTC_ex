@@ -1,6 +1,11 @@
 package com.duksung.studywithme.retrofit;
 
+import com.duksung.studywithme.common.Common;
+import com.duksung.studywithme.model.CategoryModel;
+import com.duksung.studywithme.model.SearchResultModel;
 import com.duksung.studywithme.model.TestModel;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -16,14 +21,12 @@ public interface RetrofitService {
     Call<TestModel> getUserCheck(@Field("name") String name,
                                  @Field("age") int age,
                                  @Field("address") String address);
-    
-    /* GET 형태
-    @GET("주소")
-    Call<반환모델> 함수이름(@Query("변수") 타입 변수명)
-    */
-//    @GET("")
-//    Call<TestModel> getUser(@Query("name") String name,
-//                            @Query("age") int age,
-//                            @Query("address") String address);
+
+
+    @GET(Common.SearchRoomURL)
+    Call<ArrayList<SearchResultModel>> getSearchResult(@Query("keyword") String keyword);
+
+    @GET(Common.GetCategoryURL)
+    Call<ArrayList<CategoryModel>> getCategory();
 
 }
