@@ -30,7 +30,7 @@ public class ChatMessageAdapter extends RecyclerView.Adapter {
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull @org.jetbrains.annotations.NotNull ViewGroup parent, int viewType) {
 
         //보낸 메시지 화면과 메시지 받은 화면 재사용
-        //받을 때 말풍선, 보낼 때 말풍선 따로 만들어 둔거 사용
+        //받을 때 말풍선, 보낼 때 말풍선 따로 만들어 둔 거 사용
 
         View view;
         Context context = parent.getContext();
