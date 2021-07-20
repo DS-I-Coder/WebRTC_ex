@@ -16,6 +16,7 @@
         android:text="Study with Me!" />
 
     <ImageView
+        android:id="@+id/img_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/image_circle"
