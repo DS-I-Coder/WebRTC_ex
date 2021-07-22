@@ -42,7 +42,17 @@ dependencies {
     //retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.5.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    //WebSocket
+    implementation ('io.socket:socket.io-client:2.0.0') {
+        exclude group: 'org.json', module: 'json'
+    }
 
     //MP Chart: 막대그래프, 파이차트 등 각종 그래프
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    //chatmessageadapter 어노테이션에 필요
+    implementation 'org.jetbrains:annotations:16.0.2'
+
 }

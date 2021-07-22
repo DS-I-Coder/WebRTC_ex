@@ -7,11 +7,14 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.duksung.studywithme.R;
 import com.duksung.studywithme.adapter.MainBestMemberAdapter;
 import com.duksung.studywithme.model.MainBestMemberModel;
+
+import org.w3c.dom.Node;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView tv_searchBar;
     ViewPager viewpager;
+    ImageView go_to_mypage;
 
     List<MainBestMemberModel> models;
     MainBestMemberAdapter adapter;
@@ -30,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         tv_searchBar = findViewById(R.id.tv_searchBar);
+        go_to_mypage = findViewById(R.id.go_to_mypage);
         viewpager = findViewById(R.id.main_viewpager);
 
         models = new ArrayList<>();
