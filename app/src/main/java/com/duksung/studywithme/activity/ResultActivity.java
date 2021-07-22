@@ -9,17 +9,28 @@ import android.widget.EditText;
 
 import com.duksung.studywithme.R;
 import com.duksung.studywithme.adapter.ResultAdapter;
+import com.duksung.studywithme.model.SearchResultModel;
+import com.duksung.studywithme.model.TestModel;
+import com.duksung.studywithme.retrofit.RetrofitService;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class ResultActivity extends AppCompatActivity {
+import retrofit2.Call;
 
+/**
+ * 검색결과.
+ */
+public class ResultActivity extends AppCompatActivity {
+    private static final String TAG = "ResultActivity";
     EditText et_searchBar;
     RecyclerView rc_resultList;
     ResultAdapter adapter;
-    private ArrayList<String> mList
-            = new ArrayList<String>(Arrays.asList("덕성여대 중간고사","컴공 중간고사","중간고사 D-14"));
+
+    RetrofitService retrofitService;
+
+    private ArrayList<SearchResultModel> searchResult;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,11 +39,14 @@ public class ResultActivity extends AppCompatActivity {
         et_searchBar = findViewById(R.id.et_searchBar);
         rc_resultList = findViewById(R.id.rc_resultList);
 
-        adapter = new ResultAdapter(mList, this);
-        rc_resultList.setAdapter(adapter);
-
+        // intent로 넘어온 검색 결과 데이터 받기
         Intent intent = getIntent();
-        et_searchBar.setText(intent.getStringExtra("category"));
+        //putExtra("searchResult", X) 로 넣어준 값 받기.
+        searchResult = (ArrayList<SearchResultModel>) intent.getSerializableExtra("searchResult");
+
+        //결과 리스트 adapter 설정
+        adapter = new ResultAdapter(searchResult, this);
+        rc_resultList.setAdapter(adapter);
 
     }
 }

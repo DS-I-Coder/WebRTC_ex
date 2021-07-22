@@ -16,14 +16,14 @@
         android:text="Study with Me!" />
 
     <ImageView
+        android:id="@+id/img_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/image_circle"
+        android:layout_alignBottom="@+id/text_title"
+        android:layout_alignParentEnd="true"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="5dp"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/go_to_mypage"
-        android:layout_alignBottom="@+id/text_title"/>
+        android:background="@drawable/image_circle" />
 
     <TextView
         android:id="@+id/tv_searchBar"
