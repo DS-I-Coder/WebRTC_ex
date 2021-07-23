@@ -1,14 +1,31 @@
 package com.duksung.studywithme.common.preferences;
 
-public class AppData {
+import android.content.Context;
+
+public class AppData extends IPreference {
 
     /**
-     * 앱 자체 db
-     * 가벼운 정보를 저장하는데 쓰임. 특히 매번 서버에서 값을 받아올 필요가 없는 것들(ex. 프로필 사진, 닉네임 등등)
-     * IPreference -> SharedPreferences가 key, value 형태로 저장되는데 이 과정을 간단히 하기 위한 클래스
-     * 만들어두기만하고 AppData에서 이용하면 됨.
-     *
-     * 이 부분은 지원이 한 적이 있어서 만들 수는 있으나, 갑자기 Sharedpreferences를 안쓴다는 인터넷 글을 보고
-     * 좀 더 조사 중이여서 신경쓰지 않아도 됨.
+     * 비교적 적은 양의 key-value값을 저장.
      */
+
+    private static AppData mInstance; // 싱글톤 패턴 적용하기 위해 정적변수로 선언
+
+    public static synchronized AppData getInstance(Context context){ // 싱글톤 메서드: 앱 내 단 하나의 객체만이 존재하게 함
+        if (mInstance == null){
+            mInstance = new AppData(context);
+        }
+        return mInstance;
+    }
+
+    //
+    public AppData(Context context){
+
+    }
+
+    private final String PREF_LOGIN_ID = "loginID"; // key값
+
+    public void setPREF_LOGIN_ID(String string){ putString(PREF_LOGIN_ID, string); }
+    public String getPREF_LOGIN_ID() {
+        return getString(PREF_LOGIN_ID);
+    }
 }

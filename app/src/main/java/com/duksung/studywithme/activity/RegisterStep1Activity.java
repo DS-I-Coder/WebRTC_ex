@@ -10,15 +10,15 @@ import android.widget.Button;
 import com.duksung.studywithme.R;
 
 public class RegisterStep1Activity extends AppCompatActivity {
-
+    Button btn_registerNext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_step1);
 
-        Button Button_registerNext = (Button)findViewById(R.id.Button_registerNext);
+        btn_registerNext = (Button)findViewById(R.id.btn_registerNext);
 
-        Button_registerNext.setOnClickListener(new View.OnClickListener() {
+        btn_registerNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), RegisterStep2Activity.class);
