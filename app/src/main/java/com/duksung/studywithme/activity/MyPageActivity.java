@@ -10,13 +10,13 @@ import android.widget.TextView;
 import com.duksung.studywithme.R;
 
 public class MyPageActivity extends AppCompatActivity {
-
+    TextView tv_my_study_room;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_page);
 
-        TextView tv_my_study_room = findViewById(R.id.tv_my_study_room);
+        tv_my_study_room = findViewById(R.id.tv_my_study_room);
         tv_my_study_room.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

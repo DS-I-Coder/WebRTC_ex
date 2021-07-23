@@ -10,14 +10,15 @@ import android.widget.Button;
 import com.duksung.studywithme.R;
 
 public class RegisterStep2Activity extends AppCompatActivity {
+    Button btn_register_signup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_step2);
 
-        Button button_register_signup= (Button)findViewById(R.id.button_register_signup);
-        button_register_signup.setOnClickListener(new View.OnClickListener() {
+        btn_register_signup = (Button) findViewById(R.id.btn_register_signup);
+        btn_register_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
