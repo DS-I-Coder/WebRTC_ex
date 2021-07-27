@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static String TAG = "MainActivity";
     TextView tv_searchBar;
     ViewPager viewpager;
-    ImageView img_profile;
+    ImageView img_profile, img_addRoom;
     FloatingActionButton floatingBtn_userInfo;
     List<MainBestMemberModel> models;
     MainBestMemberAdapter adapter;
@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tv_searchBar = findViewById(R.id.tv_searchBar);
         viewpager = findViewById(R.id.main_viewpager);
         img_profile = findViewById(R.id.img_profile);
+        img_addRoom = findViewById(R.id.img_addRoom);
         floatingBtn_userInfo = findViewById(R.id.floatingBtn_userInfo);
 
         //이벤트 등록
@@ -103,6 +104,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
 
+            case R.id.img_addRoom: // 스터디룸 추가 아이콘
+                Intent intent2 = new Intent(getApplicationContext(), MakeStudyRoom.class );
+                startActivity(intent2);
+                break;
 
             case R.id.floatingBtn_userInfo: //플로팅 버튼
 

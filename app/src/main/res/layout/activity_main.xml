@@ -10,27 +10,38 @@
     android:paddingEnd="15dp"
     tools:context=".activity.MainActivity">
 
-    <TextView
-        android:id="@+id/text_title"
-        style="@style/TextMainTitle"
-        android:text="Study with Me!" />
-
-    <ImageView
-        android:id="@+id/img_profile"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/layout_mainTop"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/text_title"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/image_circle" />
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/text_title"
+            style="@style/TextMainTitle"
+            android:text="Study with Me!" />
+
+        <ImageView
+            android:id="@+id/img_addRoom"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/ic_add"
+            android:layout_marginLeft="15dp"/>
+
+        <ImageView
+            android:id="@+id/img_profile"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/ic_account"/>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tv_searchBar"
         style="@style/OutlineRectangle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text_title"
+        android:layout_below="@+id/layout_mainTop"
         android:layout_marginTop="18dp"
         android:layout_marginBottom="19dp"
         android:hint="Search all category" />
