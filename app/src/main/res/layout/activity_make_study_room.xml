@@ -50,7 +50,7 @@
         <EditText
             android:id="@+id/et_studyName"
             style="@style/EditTextMakeRoom"
-            tools:ignore="LabelFor" />
+            android:inputType="text"/>
 
         <TextView
             style="@style/Text13Bold"
@@ -61,7 +61,8 @@
 
         <EditText
             android:id="@+id/studyField"
-            style="@style/EditTextMakeRoom" />
+            style="@style/EditTextMakeRoom"
+            android:inputType="text"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -144,7 +145,8 @@
                     android:text="카메라" />
 
                 <TextView
-                    style="@style/ChipMakeRoom"
+                    android:id="@+id/tv_cameraSetting"
+                    style="@style/ChipOFFMakeRoom"
                     android:text="ON/OFF" />
             </LinearLayout>
 
@@ -161,7 +163,8 @@
                     android:text="마이크" />
 
                 <TextView
-                    style="@style/ChipMakeRoom"
+                    android:id="@+id/tv_micSetting"
+                    style="@style/ChipONMakeRoom"
                     android:text="ON/OFF" />
             </LinearLayout>
 
@@ -178,7 +181,8 @@
                     android:text="스피커" />
 
                 <TextView
-                    style="@style/ChipMakeRoom"
+                    android:id="@+id/tv_speakerSetting"
+                    style="@style/ChipOFFMakeRoom"
                     android:text="ON/OFF" />
             </LinearLayout>
         </LinearLayout>
@@ -190,23 +194,22 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/outline_rectangle"
             android:padding="14dp"
-
             app:counterEnabled="true"
-            app:counterMaxLength="10"
+            app:counterMaxLength="80"
             app:hintEnabled="false">
 
             <com.google.android.material.textfield.TextInputEditText
-
+                android:id="@+id/et_studyNotice"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="180dp"
                 android:background="@null"
                 android:gravity="top"
                 android:hint="@string/set_notice_hint"
                 android:inputType="textMultiLine"
-                 android:textSize="10sp" />
+                android:textSize="10sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
 

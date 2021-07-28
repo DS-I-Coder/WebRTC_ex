@@ -20,7 +20,7 @@
     <!-- 앱 내에서 사용하는 버튼과 다른 속성은 똑같은데, 배경색과 텍스트컬러만 다른 경우
          parent로 속성을 받아서 일부 수정 or 추가 가능 -->
     <style name="ButtonBlack" parent="Button">
-        <item name="background">@drawable/button_black_border</item>
+        <item name="android:background">@drawable/button_black_border</item>
         <item name="android:textColor">@color/white</item>
     </style>
     <style name="ButtonWhite" parent="Button">
@@ -90,19 +90,34 @@
     <style name="EditTextMakeRoom">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">34dp</item>
-        <item name="android:background">@drawable/outline_rectangle</item>
+        <item name="android:background">@drawable/outline_rectangle_no_padding</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:paddingStart">7dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
     </style>
 
     <style name="TextInputLayoutd" parent="Theme.MaterialComponents.Light">
 
     </style>
 
-    <style name="ChipMakeRoom">
+    <style name="ChipOFFMakeRoom">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/chip_round</item>
+        <item name="android:backgroundTint">@color/colorBtnInactive</item>
         <item name="android:fontFamily">@font/roboto_regular</item>
         <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="ChipONMakeRoom">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/chip_round</item>
+        <item name="android:backgroundTint">@color/colorBtnActive</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
 

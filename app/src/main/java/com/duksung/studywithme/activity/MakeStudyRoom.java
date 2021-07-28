@@ -1,5 +1,6 @@
 package com.duksung.studywithme.activity;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -18,11 +19,14 @@ import android.widget.Toast;
 
 import com.duksung.studywithme.R;
 import com.duksung.studywithme.common.Common;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class MakeStudyRoom extends AppCompatActivity implements View.OnClickListener, TextWatcher {
 
     private ImageView img_backToMain;
     private EditText et_studyName, et_studyField,et_setStudyPassword;
+    private TextView tv_cameraSetting, tv_micSetting, tv_speakerSetting;
+    private TextInputEditText et_studyNotice;
     private Button btn_makeStudyRoom;
     private RadioButton radioBtn_private;
 
@@ -31,43 +35,31 @@ public class MakeStudyRoom extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_make_study_room);
 
+        setListener();
+        radioButtonInit();
+
+    }
+
+    private void setListener(){
         img_backToMain = findViewById(R.id.img_backToMain);
         btn_makeStudyRoom = findViewById(R.id.btn_makeStudyRoom);
-
-        radioButtonInit();
-        btn_makeStudyRoom.setOnClickListener(this);
-        btn_makeStudyRoom.setClickable(true);
-
         et_studyName = findViewById(R.id.et_studyName);
         et_studyField = findViewById(R.id.studyField);
+        et_studyNotice = findViewById(R.id.et_studyNotice);
+        tv_cameraSetting = findViewById(R.id.tv_cameraSetting);
+        tv_micSetting = findViewById(R.id.tv_micSetting);
+        tv_speakerSetting = findViewById(R.id.tv_speakerSetting);
 
         et_studyName.addTextChangedListener(this);
         et_studyField.addTextChangedListener(this);
+        et_studyNotice.addTextChangedListener(this);
 
+        btn_makeStudyRoom.setOnClickListener(this);
+        img_backToMain.setOnClickListener(this);
+        tv_cameraSetting.setOnClickListener(this);
+        tv_micSetting.setOnClickListener(this);
+        tv_speakerSetting.setOnClickListener(this);
     }
-
-
-    /*--------------------------------------------------------------------
-       onClick 이벤트 처리
-     *--------------------------------------------------------------------*/
-
-    @SuppressLint("NonConstantResourceId")
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.img_backToMain: // 뒤로가기버튼인
-                finish();
-                break;
-
-
-            case R.id.btn_makeStudyRoom:
-                Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_LONG).show();
-                break;
-
-
-        }
-    }
-
 
     private void radioButtonInit() {
         RadioGroup radioGroup_studyAccess = findViewById(R.id.radioGroup_studyAccess);
@@ -88,6 +80,10 @@ public class MakeStudyRoom extends AppCompatActivity implements View.OnClickList
 
                 } else if (checkedId == R.id.radioBtn_private) {    // PRIVATE
                     layout_setRoomPassword.setVisibility(View.VISIBLE);
+
+                    if(!isAllFilled()){
+                        btn_makeStudyRoom.setBackgroundResource(R.drawable.button_inactive_gray_border);
+                    }
                 }
 
             }
@@ -95,16 +91,17 @@ public class MakeStudyRoom extends AppCompatActivity implements View.OnClickList
 
     }
 
-    private boolean isAllFilled(){
+    private boolean isAllFilled(){  // 내용이 전부 채워졌는지 확인
 
         if( Common.isStringEmpty(et_studyName.getText().toString())
-            && Common.isStringEmpty(et_studyField.getText().toString())){
-            // 하나라도 채워진 내용이 있다면
+            || Common.isStringEmpty(et_studyField.getText().toString())
+            || Common.isStringEmpty(et_studyNotice.getText().toString())){
+            // 하나라도 비어있다면 return false
             return false;
         }
 
         if(radioBtn_private.isChecked()){ //private 체크인경우 비밀번호 설정했는지 확
-            if (Common.isStringEmpty(et_setStudyPassword.getText().toString())){
+            if (Common.isStringEmpty( et_setStudyPassword.getText().toString())){
                 return false;
             }
         }
@@ -112,14 +109,34 @@ public class MakeStudyRoom extends AppCompatActivity implements View.OnClickList
         return true;
     }
 
-    /**
-     * TextWatcher() 메소드
-     */
+    /*--------------------------------------------------------------------
+       onClick, TextWatcher 이벤트 처리
+     *--------------------------------------------------------------------*/
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId() == R.id.img_backToMain){             // 뒤로가기 버튼
+
+        }
+        else if (v.getId() == R.id.btn_makeStudyRoom){  // 하단 MAKE STUDY ROOM 버튼
+
+        }
+        else if(v.getId() == R.id.tv_cameraSetting) {
+            toggleSettingChip(tv_cameraSetting);
+        }
+    }
+
+    private void toggleSettingChip(TextView textView){
+
+    }
+
+    //* editText 텍스트 입력 전
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
     }
 
+    //* editText 텍스트 입력 중
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
         if(isAllFilled()){
@@ -131,6 +148,7 @@ public class MakeStudyRoom extends AppCompatActivity implements View.OnClickList
         }
     }
 
+    //* editText 텍스트 입력 완료 후
     @Override
     public void afterTextChanged(Editable s) {
 

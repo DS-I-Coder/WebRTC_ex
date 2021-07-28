@@ -1,5 +1,7 @@
 package com.duksung.studywithme.common;
 
+import androidx.annotation.Nullable;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -17,7 +19,7 @@ public class Common {
 
 
     /** 빈 문자열 체크 **/
-    public static boolean isStringEmpty(String str){
+    public static boolean isStringEmpty(@Nullable String str){
         if(str == null || str.trim().isEmpty()){
             return true;
         }
