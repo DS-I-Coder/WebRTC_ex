@@ -233,7 +233,7 @@ public class CallActivity extends Activity implements AppRTCClient.SignalingEven
 
     // Create video renderers.
     pipRenderer.init(eglBase.getEglBaseContext(), null);
-    pipRenderer.setScalingType(ScalingType.SCALE_ASPECT_FIT);
+    pipRenderer.setScalingType(ScalingType.SCALE_ASPECT_FILL);
     String saveRemoteVideoToFile = intent.getStringExtra(EXTRA_SAVE_REMOTE_VIDEO_TO_FILE);
 
     // When saveRemoteVideoToFile is set we save the video from the remote to a file.

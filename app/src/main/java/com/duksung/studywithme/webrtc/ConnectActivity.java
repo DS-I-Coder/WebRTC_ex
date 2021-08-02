@@ -95,8 +95,8 @@ public class ConnectActivity extends Activity {
 
     roomEditText = findViewById(R.id.room_edittext);
 /*************************추가*******************************/
-    roomEditText.setText("888767879");
-    //connectToRoom("888767879", false, false, false, 0);
+    //roomEditText.setText("948513278");
+    connectToRoom("917184845", false, false, false, 0);
 /***********************추가*******************************/
 
 
