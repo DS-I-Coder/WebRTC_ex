@@ -1,5 +1,7 @@
 package com.duksung.studywithme.common;
 
+import androidx.annotation.Nullable;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -9,15 +11,15 @@ import java.util.Arrays;
 public class Common {
     // static final 변수 선언
 
-//    public static final String BASE_SERVER_URL = "http://192.168.0.21:3000";  // ip주소
-    public static final String BASE_SERVER_URL = "http://192.168.214.1:3000";
+    public static final String BASE_SERVER_URL = "http://192.168.0.21:3000";  // ip주소
+//    public static final String BASE_SERVER_URL = "http://192.168.214.1:3000";
 
     public static final String SearchRoomURL = "/mainpage/search";      // 방 검색
     public static final String GetCategoryURL = "/mainpage/category";   // 카테고리 조회
 
 
     /** 빈 문자열 체크 **/
-    public static boolean isStringEmpty(String str){
+    public static boolean isStringEmpty(@Nullable String str){
         if(str == null || str.trim().isEmpty()){
             return true;
         }

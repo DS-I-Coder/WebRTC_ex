@@ -4,13 +4,8 @@ import android.content.SharedPreferences;
 
 public class IPreference {
     /**
-     * 앱 자체 db
-     * 가벼운 정보를 저장하는데 쓰임. 특히 매번 서버에서 값을 받아올 필요가 없는 것들(ex. 프로필 사진, 닉네임 등등)
-     * IPreference -> SharedPreferences가 key, value 형태로 저장되는데 이 과정을 간단히 하기 위한 클래스
-     * 만들어두기만하고 AppData에서 이용하면 됨.
-     *
-     * 이 부분은 지원이 한 적이 있어서 만들 수는 있으나, 갑자기 Sharedpreferences를 안쓴다는 인터넷 글을 보고
-     * 좀 더 조사 중이여서 신경쓰지 않아도 됨.
+     * SharedPreferences는 key-value 쌍으로 값을 관리하기 때문에 자신이 설정해놓은 key를 알아야 함.
+     * 값을 넣고 찾을 때 복잡하기 때문에 단순화하기 위해 IPreference 클래스를 만들어 AppData를
      */
     protected SharedPreferences mSharedPreferences;
 
@@ -30,5 +25,18 @@ public class IPreference {
         return mSharedPreferences.getBoolean(key, false);
     }
 
+    public String getString(String key) { return mSharedPreferences.getString(key, ""); }
 
+    public void putString(String key, String value){
+        SharedPreferences.Editor editor = mSharedPreferences.edit();
+        editor.putString(key, value);
+        editor.apply();
+    }
+
+
+    public void clear(){
+        SharedPreferences.Editor editor = mSharedPreferences.edit();
+        editor.clear();
+        editor.apply();
+    }
 }

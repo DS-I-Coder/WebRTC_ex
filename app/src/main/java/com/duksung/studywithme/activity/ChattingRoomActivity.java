@@ -98,6 +98,7 @@ public class ChattingRoomActivity extends AppCompatActivity {
             MessageData data = gson.fromJson(args[0].toString(), MessageData.class);
             addChat(data);
         });
+
     }
 
     //메시지 받으면 리사이클러뷰에 채팅 추가(보낸 사람, 내용, 시간)

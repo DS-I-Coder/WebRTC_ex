@@ -6,13 +6,6 @@
     <!-- 테두리 내부 색상 설정 -->
     <solid android:color="@color/white" />
 
-    <!-- 테두리 내부 여백 설정 -->
-    <padding
-        android:bottom="17dp"
-        android:left="17dp"
-        android:right="17dp"
-        android:top="17dp" />
-
     <!-- 테두리 설정: 두께, 색상 -->
     <stroke
         android:width="2dp"

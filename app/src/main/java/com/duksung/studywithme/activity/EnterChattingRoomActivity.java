@@ -10,7 +10,10 @@ import android.widget.EditText;
 
 import com.duksung.studywithme.R;
 
-//채팅 방 입장 전 이름, 방 번호 입력 받아서 intent로 값 넘겨줌
+/**
+ * 채팅방 입장 전 화면
+ * - 이름, 방 번호 입력 받아서 intent로 값 넘겨줌
+ */
 public class EnterChattingRoomActivity extends AppCompatActivity {
 
     Button btn_enter_chat_room;
