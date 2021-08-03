@@ -1,66 +1,76 @@
 package com.duksung.studywithme.activity;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.duksung.studywithme.R;
 import com.duksung.studywithme.common.Common;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class MakeStudyRoom extends AppCompatActivity implements View.OnClickListener, TextWatcher {
-
+    private static String TAG = "MakeStudyRoom";
     private ImageView img_backToMain;
     private EditText et_studyName, et_studyField,et_setStudyPassword;
     private TextView tv_cameraSetting, tv_micSetting, tv_speakerSetting;
     private TextInputEditText et_studyNotice;
+    private Spinner sp_studyField;
     private Button btn_makeStudyRoom;
     private RadioButton radioBtn_private;
+    private BottomSheetDialog bottomSheetDialog;
+    Boolean chipState = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_make_study_room);
 
-        setListener();
-        radioButtonInit();
-
-    }
-
-    private void setListener(){
         img_backToMain = findViewById(R.id.img_backToMain);
         btn_makeStudyRoom = findViewById(R.id.btn_makeStudyRoom);
         et_studyName = findViewById(R.id.et_studyName);
-        et_studyField = findViewById(R.id.studyField);
         et_studyNotice = findViewById(R.id.et_studyNotice);
+        et_setStudyPassword = findViewById(R.id.et_setStudyPassword);
         tv_cameraSetting = findViewById(R.id.tv_cameraSetting);
         tv_micSetting = findViewById(R.id.tv_micSetting);
         tv_speakerSetting = findViewById(R.id.tv_speakerSetting);
 
         et_studyName.addTextChangedListener(this);
-        et_studyField.addTextChangedListener(this);
         et_studyNotice.addTextChangedListener(this);
+        et_setStudyPassword.addTextChangedListener(this);
 
         btn_makeStudyRoom.setOnClickListener(this);
         img_backToMain.setOnClickListener(this);
         tv_cameraSetting.setOnClickListener(this);
         tv_micSetting.setOnClickListener(this);
         tv_speakerSetting.setOnClickListener(this);
+
+        spinnerInit();
+        radioButtonInit();
+
     }
 
+    private void spinnerInit(){
+        sp_studyField = findViewById(R.id.sp_studyField);
+        ArrayAdapter<String> a = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item,
+                getResources().getStringArray(R.array.studyFields));
+        a.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        sp_studyField.setDropDownVerticalOffset(Math.round(Common.dipToPixels(this, 34)));
+        sp_studyField.setAdapter(a);
+    }
     private void radioButtonInit() {
         RadioGroup radioGroup_studyAccess = findViewById(R.id.radioGroup_studyAccess);
         RadioButton radioBtn_public = findViewById(R.id.radioBtn_public);
@@ -80,33 +90,12 @@ public class MakeStudyRoom extends AppCompatActivity implements View.OnClickList
 
                 } else if (checkedId == R.id.radioBtn_private) {    // PRIVATE
                     layout_setRoomPassword.setVisibility(View.VISIBLE);
-
-                    if(!isAllFilled()){
-                        btn_makeStudyRoom.setBackgroundResource(R.drawable.button_inactive_gray_border);
-                    }
+                    et_setStudyPassword.setText("");
+                    btn_makeStudyRoom.setBackgroundResource(R.drawable.button_inactive_gray_border);
                 }
-
             }
         });
 
-    }
-
-    private boolean isAllFilled(){  // 내용이 전부 채워졌는지 확인
-
-        if( Common.isStringEmpty(et_studyName.getText().toString())
-            || Common.isStringEmpty(et_studyField.getText().toString())
-            || Common.isStringEmpty(et_studyNotice.getText().toString())){
-            // 하나라도 비어있다면 return false
-            return false;
-        }
-
-        if(radioBtn_private.isChecked()){ //private 체크인경우 비밀번호 설정했는지 확
-            if (Common.isStringEmpty( et_setStudyPassword.getText().toString())){
-                return false;
-            }
-        }
-
-        return true;
     }
 
     /*--------------------------------------------------------------------
@@ -116,29 +105,66 @@ public class MakeStudyRoom extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.img_backToMain){             // 뒤로가기 버튼
-
+            //TODO 내용이 채워져있을 때, 사용자에게 정말로 나갈 것인지 확인?
+            finish();
         }
         else if (v.getId() == R.id.btn_makeStudyRoom){  // 하단 MAKE STUDY ROOM 버튼
-
+            //TODO 방 정보 서버로 전송 + 화면 어디로 이동?
         }
+
         else if(v.getId() == R.id.tv_cameraSetting) {
             toggleSettingChip(tv_cameraSetting);
         }
+        else if(v.getId() == R.id.tv_micSetting){
+            toggleSettingChip(tv_micSetting);
+        }
+        else if(v.getId() == R.id.tv_speakerSetting){
+            toggleSettingChip(tv_speakerSetting);
+        }
     }
 
-    private void toggleSettingChip(TextView textView){
+    private void toggleSettingChip(TextView view){
+        if (chipState){
+            // chip이 off상태라면 on으로
+            view.setBackground(ContextCompat.getDrawable(this, R.drawable.chip_on));
+            view.setTextColor(ContextCompat.getColor(this, R.color.white));
+            chipState = false;
+        }else{
+            // chip이 on상태라면 off로
+            view.setBackground(ContextCompat.getDrawable(this, R.drawable.chip_off));
+            view.setTextColor(ContextCompat.getColor(this, R.color.black));
+            chipState = true;
+        }
+    }
 
+    private boolean isAllFilled(){  // 내용이 전부 채워졌는지 확인
+
+        if( Common.isStringEmpty(et_studyName.getText().toString())
+                //|| Common.isStringEmpty(et_studyField.getText().toString())
+                || Common.isStringEmpty(et_studyNotice.getText().toString())){
+            // 하나라도 비어있다면 return false
+            return false;
+        }
+
+        if(radioBtn_private.isChecked()) { //private 체크인경우 비밀번호 설정했는지 확인
+            if (Common.isStringEmpty(et_setStudyPassword.getText().toString())) {
+                return false;
+            }
+        }
+        return true;
     }
 
     //* editText 텍스트 입력 전
     @Override
-    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-    }
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
     //* editText 텍스트 입력 중
     @Override
-    public void onTextChanged(CharSequence s, int start, int before, int count) {
+    public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+    //* editText 텍스트 입력 완료 후
+    @Override
+    public void afterTextChanged(Editable s) {
         if(isAllFilled()){
             btn_makeStudyRoom.setEnabled(true);
             btn_makeStudyRoom.setBackgroundResource(R.drawable.button_active_darkblue_border);
@@ -146,11 +172,5 @@ public class MakeStudyRoom extends AppCompatActivity implements View.OnClickList
             btn_makeStudyRoom.setEnabled(false);
             btn_makeStudyRoom.setBackgroundResource(R.drawable.button_inactive_gray_border);
         }
-    }
-
-    //* editText 텍스트 입력 완료 후
-    @Override
-    public void afterTextChanged(Editable s) {
-
     }
 }

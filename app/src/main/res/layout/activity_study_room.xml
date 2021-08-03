@@ -4,24 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.StudyRoomActivity"
-
     android:paddingStart="15dp"
+
+    android:paddingTop="26dp"
     android:paddingEnd="15dp"
-    android:paddingTop="26dp">
+    tools:context=".activity.StudyRoomActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/notice"
-            style="@style/OutlineRectangle"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/text_title"
-            android:text="Notice" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="7dp"
+                android:background="@drawable/ic_room_exit" />
+
+            <TextView
+                android:id="@+id/notice"
+                style="@style/OutlineRectangle"
+                android:paddingTop="13dp"
+                android:paddingBottom="13dp"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:text="Notice" />
+        </LinearLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -42,15 +56,32 @@
             android:layout_marginBottom="10dp"
             tools:layout="@layout/fragment_camera_view" />
 
-        <Switch
-            android:id="@+id/onoffbutton"
-            style="@style/Text15Regular"
-            android:layout_width="103dp"
-            android:layout_height="33dp"
-            android:layout_marginLeft="285dp"
-            android:text="On / Off"
-            android:textColor="#000000" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <TextView
+                android:id="@+id/tv_stopWatch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00:00"
+                android:textColor="@color/black"
+                android:textSize="24sp"/>
+
+            <ImageView
+                android:id="@+id/img_chat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_chat"/>
+
+            <Switch
+                android:id="@+id/onoffbutton"
+                style="@style/Text15Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="On / Off"
+                android:textColor="#000000" />
+        </LinearLayout>
         <!-- 영상처리된 화면 -->
 
         <!-- 영상처리된 화면 -->

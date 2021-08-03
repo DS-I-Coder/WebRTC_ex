@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="studyFields">
+        <item>어학공부</item>
+        <item>취업</item>
+        <item>임용</item>
+        <item>공무원</item>
+        <item>취미</item>
+        <item>고등학교</item>
+        <item>중학교</item>
+        <item>독서</item>
+    </string-array>
+
     <string-array name="videoResolutions">
         <item>Default</item>
         <item>4K (3840 x 2160)</item>
