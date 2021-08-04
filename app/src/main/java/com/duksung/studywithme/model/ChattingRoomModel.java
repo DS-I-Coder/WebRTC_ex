@@ -1,5 +1,8 @@
 package com.duksung.studywithme.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ChattingRoomModel {
 
     private String chatname;
@@ -9,6 +12,7 @@ public class ChattingRoomModel {
         this.chatname = username;
         this.roomnumber = roomnumber;
     }
+
 
 
     public String getChatname() {
