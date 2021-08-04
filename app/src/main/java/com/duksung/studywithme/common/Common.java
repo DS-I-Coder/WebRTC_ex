@@ -20,6 +20,8 @@ public class Common {
 
     public static final String SearchRoomURL = "/mainpage/search";      // 방 검색
     public static final String GetCategoryURL = "/mainpage/category";   // 카테고리 조회
+//    public static final String GetStudyRoomURL = "/mainpage/studyroomID/{rid}";   // 방은 오류나서 아직 못했음
+
 
 
     /** 빈 문자열 체크 **/

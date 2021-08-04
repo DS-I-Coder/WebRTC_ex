@@ -4,11 +4,30 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.duksung.studywithme.R;
+import com.duksung.studywithme.model.CategoryModel;
+import com.duksung.studywithme.model.SearchResultModel;
+import com.duksung.studywithme.model.StudyRoomModel;
+import com.duksung.studywithme.retrofit.RetrofitHelper;
+import com.duksung.studywithme.retrofit.RetrofitService;
+
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * 채팅방 입장 전 화면

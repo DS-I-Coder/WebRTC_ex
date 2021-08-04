@@ -20,7 +20,7 @@ public class MyPageActivity extends AppCompatActivity {
         tv_my_study_room.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(getApplicationContext(),StudyRoomActivity.class);
+                Intent intent= new Intent(getApplicationContext(),CreateRoomActivity.class);
                 startActivity(intent);
             }
         });
