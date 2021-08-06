@@ -50,7 +50,7 @@
 
             <EditText
                 android:id="@+id/et_studyName"
-                style="@style/EditTextMakeRoom"
+                style="@style/OutlineRectangleSmall"
                 android:inputType="text" />
 
             <TextView
@@ -60,10 +60,14 @@
                 android:layout_marginBottom="6dp"
                 android:text="스터디 분야" />
 
-            <Spinner
-                android:id="@+id/sp_studyField"
-                style="@style/EditTextMakeRoom"
-                android:theme="@style/SpinnerTheme"/>
+            <FrameLayout style="@style/OutlineRectangleSmall"
+                android:gravity="center_vertical">
+
+                <Spinner
+                    android:id="@+id/sp_studyCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </FrameLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -114,7 +118,7 @@
 
                 <EditText
                     android:id="@+id/et_setStudyPassword"
-                    style="@style/EditTextMakeRoom"
+                    style="@style/OutlineRectangleSmall"
                     android:layout_width="130dp"
                     android:inputType="numberPassword" />
 
@@ -210,7 +214,7 @@
                     android:gravity="top"
                     android:hint="@string/set_notice_hint"
                     android:inputType="textMultiLine"
-                    android:textSize="10sp" />
+                    android:textSize="14sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
 

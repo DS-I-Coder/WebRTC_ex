@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="studyFields">
+    <string-array name="category">
         <item>어학공부</item>
         <item>취업</item>
         <item>임용</item>

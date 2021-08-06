@@ -10,13 +10,7 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="SpinnerDivideStyle" parent="Widget.AppCompat.ListView.DropDown">
-        <item name="android:divider">#DCD9D9</item>
-        <item name="android:dividerHeight">2dp</item>
-    </style>
-    <style name="SpinnerTheme" parent="AppTheme">
-        <item name="android:dropDownListViewStyle">@style/SpinnerDivideStyle</item>
-    </style>
+
     
     <style name="Button">
         <item name="android:textSize">13dp</item>
@@ -46,11 +40,19 @@
     </style>
     <style name="OutlineRectangle">
         <item name="android:background">@drawable/outline_rectangle</item>
-        <item name="android:textSize">15sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:layout_gravity">center</item>
     </style>
-
+    <style name="OutlineRectangleSmall" parent="OutlineRectangle">
+        <item name="android:paddingStart">7dp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:paddingEnd">7dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">34dp</item>
+    </style>
     <style name="LayoutStartEndPadding">
         <item name="android:paddingStart">23dp</item>
         <item name="android:paddingEnd">23dp</item>
@@ -93,16 +95,7 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <!-- 방생성 레이아웃에서 사용하는 edittext 스타일 -->
-    <style name="EditTextMakeRoom">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">34dp</item>
-        <item name="android:background">@drawable/outline_rectangle_no_padding</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:paddingStart">7dp</item>
-        <item name="android:textSize">12sp</item>
-        <item name="android:fontFamily">@font/roboto_regular</item>
-    </style>
+
 
     <style name="TextInputLayoutd" parent="Theme.MaterialComponents.Light">
 
@@ -113,6 +106,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/chip_off</item>
         <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">@color/black</item>
         <item name="android:textSize">12sp</item>
     </style>
 
