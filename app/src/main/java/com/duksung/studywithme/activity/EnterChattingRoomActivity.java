@@ -51,7 +51,7 @@ public class EnterChattingRoomActivity extends AppCompatActivity {
         btn_enter_chat_room.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),ChattingRoomActivity.class);
+                Intent intent = new Intent(getApplicationContext(),StudyRoomActivity.class);
                 intent.putExtra("chatname",et_chat_name.getText().toString());
                 intent.putExtra("roomnumber",et_chat_room_num.getText().toString());
                 startActivity(intent);

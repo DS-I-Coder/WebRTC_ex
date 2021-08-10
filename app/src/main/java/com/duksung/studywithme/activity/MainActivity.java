@@ -1,27 +1,27 @@
 package com.duksung.studywithme.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 import androidx.viewpager.widget.ViewPager;
-import android.app.Dialog;
+
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.view.ViewGroup;
+import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.duksung.studywithme.R;
 import com.duksung.studywithme.adapter.MainBestMemberAdapter;
+import com.duksung.studywithme.common.preferences.AppData;
+import com.duksung.studywithme.fragment.dialog.MainFloatingDialog;
 import com.duksung.studywithme.model.CategoryModel;
 import com.duksung.studywithme.model.MainBestMemberModel;
 import com.duksung.studywithme.retrofit.RetrofitHelper;
 import com.duksung.studywithme.retrofit.RetrofitService;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import org.w3c.dom.Node;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +30,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static String TAG = "MainActivity";
     TextView tv_searchBar;
     ViewPager viewpager;
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     FloatingActionButton floatingBtn_userInfo;
     List<MainBestMemberModel> models;
     MainBestMemberAdapter adapter;
-    RetrofitService retrofitService = RetrofitHelper.getRetrofit().create(RetrofitService.class);
+    //RetrofitService retrofitService = RetrofitHelper.getRetrofit().create(RetrofitService.class);
 
 
     @Override
@@ -55,17 +55,44 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //이벤트 등록
         tv_searchBar.setOnClickListener(this);
         img_profile.setOnClickListener(this);
+        img_addRoom.setOnClickListener(this);
         floatingBtn_userInfo.setOnClickListener(this);
 
-        setAdapter();
+        AppData appData = AppData.getInstance(getApplicationContext());
+        appData.setPREF_ACC_TIME(4000);
+
+        bestMemberLayout();
+        studyRoomLayout();
 
     }
 
-    private void setAdapter(){
+    private void studyRoomLayout() {
+
+        GridLayout gridLayout = findViewById(R.id.gridLayout);
+        int i = 0;
+        for (; i < 5; i++) {
+            View view = getLayoutInflater().inflate(R.layout.childview_main_study_room, null);
+            GridLayout.Spec spec = GridLayout.spec(GridLayout.UNDEFINED, 1.0f);
+            GridLayout.LayoutParams lp = new GridLayout.LayoutParams(new ViewGroup.MarginLayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT));
+            lp.columnSpec = spec;
+            lp.leftMargin = 10;
+            lp.rightMargin = 10;
+            lp.bottomMargin = 20;
+            gridLayout.addView(view, lp);
+        }
+
+        //TODO host가 자신의 rID인 스터디룸
+
+
+        //TODO 접속했던 방과 동일한 분야의 스터디룸 무작위 추첨
+
+    }
+
+    private void bestMemberLayout() {
         //베스트 멤버에 필요한 데이터 models 변수에 담아
         models = new ArrayList<>();
         models.add(new MainBestMemberModel("분야"));
-        models.add(new MainBestMemberModel("나이이"));
+        models.add(new MainBestMemberModel("나이"));
 
         //어댑터 생성시 보냄.
         adapter = new MainBestMemberAdapter(models, this);
@@ -79,57 +106,42 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.tv_searchBar: // 검색바
+        Log.d(TAG,v.getId()+"");
+        Log.d(TAG, R.id.floatingBtn_userInfo+"");
+        if (v.getId() == R.id.tv_searchBar) { // 검색바
 
-                Log.d(TAG,"searchBar EVENT");
-                retrofitService.getCategory().enqueue(new Callback<ArrayList<CategoryModel>>() {
-                    @Override
-                    public void onResponse(Call<ArrayList<CategoryModel>> call, Response<ArrayList<CategoryModel>> response) {
-                        Log.d(TAG, "response");
-                        Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
-                        intent.putExtra("category", response.body()); //현재 존재하는 카테고리 받아서 넘김.
-                        startActivity(intent);
-                        overridePendingTransition(R.anim.right_in, R.anim.not_move); // 화면전환 애니메이션
-                    }
+            Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.right_in, R.anim.not_move); // 화면전환 애니메이션
 
-                    @Override
-                    public void onFailure(Call<ArrayList<CategoryModel>> call, Throwable t) {
-                        Log.d(TAG, t.getMessage());
-                    }
-                });
-                break;
+            /*retrofitService.getCategory().enqueue(new Callback<ArrayList<CategoryModel>>() {
+                @Override
+                public void onResponse(Call<ArrayList<CategoryModel>> call, Response<ArrayList<CategoryModel>> response) {
+                    Log.d(TAG, "response");
+                    Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+                    intent.putExtra("category", response.body()); //현재 존재하는 카테고리 받아서 넘김.
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.right_in, R.anim.not_move); // 화면전환 애니메이션
+                }
 
-
-            case R.id.img_profile: // 마이페이지 아이콘
-                Intent intent = new Intent(getApplicationContext(), MyPageActivity.class );
-                startActivity(intent);
-                break;
-
-            case R.id.img_addRoom: // 스터디룸 추가 아이콘
-                Intent intent2 = new Intent(getApplicationContext(), MakeStudyRoom.class );
-                startActivity(intent2);
-                break;
-
-            case R.id.floatingBtn_userInfo: //플로팅 버튼
-
-                // 임시 다이얼로그 : 처음에 누적시간 용도로 만들어서 이름이 pause인 것.
-                Dialog dialog = new Dialog(MainActivity.this);
-                dialog.setCanceledOnTouchOutside(false); // 다이얼로그 밖을 터치했을 때
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialog.setContentView(R.layout.dialog_pause);
-
-                final Button btn_exit = dialog.findViewById(R.id.btn_exit);
-
-                btn_exit.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-                    }
-                });
-                dialog.show();
-                break;
-
+                @Override
+                public void onFailure(Call<ArrayList<CategoryModel>> call, Throwable t) {
+                    Log.d(TAG, t.getMessage());
+                }
+            });*/
+        } else if (v.getId() == R.id.img_profile) { // 마이페이지 아이콘
+            Intent intent = new Intent(getApplicationContext(), MyPageActivity.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.right_in, R.anim.not_move);
+        } else if (v.getId() == R.id.img_addRoom) { // 스터디룸 추가 아이콘
+            Intent intent2 = new Intent(getApplicationContext(), MakeStudyRoom.class);
+            startActivity(intent2);
+            overridePendingTransition(R.anim.right_in, R.anim.not_move);
+        } else if (v.getId() == R.id.floatingBtn_userInfo) { //플로팅 버튼
+            Log.d(TAG, "dfdfdfdfd");
+            DialogFragment mainFloatingDialog = new MainFloatingDialog();
+            mainFloatingDialog.show(getSupportFragmentManager(), "mainFloatingDialog");
         }
+
     }
 }

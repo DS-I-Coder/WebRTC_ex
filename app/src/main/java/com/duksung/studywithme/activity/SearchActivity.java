@@ -37,7 +37,7 @@ public class SearchActivity extends AppCompatActivity {
     RecyclerView rc_categoryList;
     SearchAdapter searchAdapter;
     EditText et_searchBar;
-    ArrayList<CategoryModel> categoryModels;
+    //ArrayList<CategoryModel> categoryModels;
     RetrofitService retrofitService = RetrofitHelper.getRetrofit().create(RetrofitService.class);
 
     @Override
@@ -49,12 +49,12 @@ public class SearchActivity extends AppCompatActivity {
         rc_categoryList = findViewById(R.id.rc_categoryList);
 
         // * (수정) 지금은 메인페이지 검색바 눌렀을 때,
-        Intent intent = getIntent();
-        categoryModels = (ArrayList<CategoryModel>) intent.getSerializableExtra("category");
+        //Intent intent = getIntent();
+        //categoryModels = (ArrayList<CategoryModel>) intent.getSerializableExtra("category");
 
         // * category 리사이클러 뷰
         // 리사이클러 뷰에 대한 이벤트 처리는 어댑터의 몫.
-        searchAdapter = new SearchAdapter(categoryModels, this);
+        searchAdapter = new SearchAdapter(getResources().getStringArray(R.array.category), this);
         rc_categoryList.setAdapter(searchAdapter);
 
 

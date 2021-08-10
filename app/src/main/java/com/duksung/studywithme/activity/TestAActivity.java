@@ -59,7 +59,11 @@ public class TestAActivity extends AppCompatActivity {
             }
         });
 
+        layout_webview.setWebChromeClient(new WebChromeClient(){
 
-        layout_webview.loadUrl("https://192.168.0.21:3000/a1575f4a-0fff-4165-a26b-99803c29a609");
+        });
+
+        layout_webview.setWebContentsDebuggingEnabled(true);
+        layout_webview.loadUrl("http://192.168.0.21:3000/a1575f4a-0fff-4165-a26b-99803c29a609");
     }
 }

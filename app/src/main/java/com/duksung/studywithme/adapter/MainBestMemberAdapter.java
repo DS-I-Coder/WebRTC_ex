@@ -12,6 +12,7 @@ import androidx.viewpager.widget.PagerAdapter;
 
 import com.duksung.studywithme.R;
 import com.duksung.studywithme.activity.DataChartActivity;
+import com.duksung.studywithme.activity.StudyRoomActivity;
 import com.duksung.studywithme.model.MainBestMemberModel;
 
 import org.w3c.dom.Text;
@@ -65,7 +66,7 @@ public class MainBestMemberAdapter extends PagerAdapter {
             @Override
             public void onClick(View v) {
                 // DataChartActivity(데이터 시각화 화면)으로 이동
-                Intent intent = new Intent(context, DataChartActivity.class);
+                Intent intent = new Intent(context, StudyRoomActivity.class);
                 context.startActivity(intent);
             }
         });

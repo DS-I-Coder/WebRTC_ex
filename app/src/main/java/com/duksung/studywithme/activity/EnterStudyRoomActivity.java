@@ -51,7 +51,7 @@ public class EnterStudyRoomActivity extends AppCompatActivity implements View.On
         else if (v.getId() == R.id.img_roomMic){    // 마이크 버튼
 
         }
-        else if (v.getId() == R.id. img_roomInfo){  // 방 정보
+        else if (v.getId() == R.id.img_roomInfo){  // 방 정보
             Log.d(TAG, "info button");
 
             DialogFragment roomInfoDialog = new RoomInfoDialog();
