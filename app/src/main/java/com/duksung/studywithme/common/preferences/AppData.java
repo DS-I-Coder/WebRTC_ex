@@ -19,13 +19,21 @@ public class AppData extends IPreference {
 
     //
     public AppData(Context context){
-
+        super(context);
+        mContext = context;
+        mSharedPreferences = mContext.getSharedPreferences("IdealPref", Context.MODE_PRIVATE);
     }
 
     private final String PREF_LOGIN_ID = "loginID"; // key값
+    private final String PREF_ACC_TIME = "accTime"; // 누적시간
+
 
     public void setPREF_LOGIN_ID(String string){ putString(PREF_LOGIN_ID, string); }
     public String getPREF_LOGIN_ID() {
         return getString(PREF_LOGIN_ID);
+    }
+    public void setPREF_ACC_TIME(int i){ putInt(PREF_ACC_TIME, i); }
+    public int getPREF_ACC_TIME() {
+        return getInt(PREF_ACC_TIME);
     }
 }

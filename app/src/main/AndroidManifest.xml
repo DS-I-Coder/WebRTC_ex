@@ -36,14 +36,7 @@
 
 
 
-        <activity android:name=".activity.TestAActivity">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-        </activity>
-
+        <activity android:name=".activity.TestAActivity" />
 
         <!--초기화면: 로그인, 회원가입-->
 
@@ -63,13 +56,16 @@
 
 
         <!--메인-->
-        <activity android:name=".activity.MainActivity" />
-        <activity android:name=".activity.MakeStudyRoom"
-            android:windowSoftInputMode="adjustResize">
+        <activity android:name=".activity.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".activity.MakeStudyRoom"
+            android:windowSoftInputMode="adjustResize">
+
         </activity>
 
 
@@ -78,13 +74,14 @@
         <activity android:name=".activity.ResultActivity" />
 
         <!--스터디룸-->
-        <activity android:name=".activity.EnterStudyRoomActivity">
-
+        <activity android:name=".activity.EnterStudyRoomActivity"/>
+        <activity android:name=".activity.CreateRoomActivity"/>
+        <activity android:name=".activity.StudyRoomActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity android:name=".activity.CreateRoomActivity"></activity>
-        <activity android:name=".activity.StudyRoomActivity" />
-        <activity android:name=".activity.EnterChattingRoomActivity" />
-        <activity android:name=".activity.ChattingRoomActivity" />
 
 
         <activity

@@ -11,6 +11,11 @@
         <item>독서</item>
     </string-array>
 
+    <string-array name="bestMember">
+        <item>분야</item>
+        <item>나이</item>
+    </string-array>
+
     <string-array name="videoResolutions">
         <item>Default</item>
         <item>4K (3840 x 2160)</item>

@@ -19,12 +19,12 @@ import java.util.Arrays;
 
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder> {
 
-    private ArrayList<CategoryModel> mList;
+    private String[] strings;
     private Context context;
 
     /* 생성자 */
-    public SearchAdapter(ArrayList<CategoryModel> mList, Context context) {
-        this.mList = mList;
+    public SearchAdapter(String[] strings, Context context) {
+        this.strings = strings;
         this.context = context;
     }
 
@@ -42,14 +42,14 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
     /* onBindViewHolder - 생성된 뷰홀더에 데이터 바인딩 */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        String str = mList.get(position).getCategory();
+        String str = strings[position];
         holder.category.setText("# "+str); // '# 카테고리명' 형식으로 설정
     }
 
     /* getItemCount */
     @Override
     public int getItemCount() {
-        return mList.size();
+        return strings.length;
     }
 
     /*--------------------------------------------------------------------
