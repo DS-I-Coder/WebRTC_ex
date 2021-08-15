@@ -15,7 +15,7 @@
         android:layout_marginBottom="29dp">
 
         <ImageView
-            android:id="@+id/img_backToMain"
+            android:id="@+id/img_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -36,7 +36,6 @@
         style="@style/OutlineRectangle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_mainTitle"
         android:layout_marginBottom="23dp"
         android:ems="10"
         android:hint="email"
@@ -47,18 +46,16 @@
         style="@style/OutlineRectangle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/et_registerId"
         android:ems="10"
         android:inputType="textPassword"
         android:hint="password"
         android:layout_marginBottom="23dp" />
 
     <EditText
-        android:id="@+id/et_registerPassword2"
+        android:id="@+id/et_checkRegisterPassword"
         style="@style/OutlineRectangle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/et_registerPassword"
         android:ems="10"
         android:inputType="textPassword"
         android:hint="password confirm"
@@ -67,7 +64,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/et_registerPassword2"
         android:gravity="center_vertical">
 
         <EditText
@@ -80,7 +76,7 @@
             android:inputType="text" />
 
         <Button
-            android:id="@+id/btn_nickname2"
+            android:id="@+id/btn_nickname"
             style="@style/Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -88,11 +84,21 @@
             android:text="중복확인" />
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/tv_alertExistNickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:textColor="#CD2A2A"
+        android:text="이미 사용 중인 닉네임입니다."
+        android:visibility="invisible"/>
+
     <Button
         android:id="@+id/btn_register"
         style="@style/Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:layout_below="@id/et_nickname"
         android:text="REGISTER" />
 </LinearLayout>

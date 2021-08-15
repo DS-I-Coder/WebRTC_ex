@@ -1,8 +1,6 @@
 package com.duksung.studywithme.adapter;
 
 import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.duksung.studywithme.R;
 import com.duksung.studywithme.model.SearchResultModel;
-import com.duksung.studywithme.webrtc.ConnectActivity;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ViewHolder> {
     private static final String TAG = "ResultAdapter";
@@ -35,7 +31,7 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ViewHolder
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View root = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.listitem_search_result, parent, false);
+                .inflate(R.layout.listitem_study_room, parent, false);
         return new ResultAdapter.ViewHolder(root);
     }
 
