@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     FloatingActionButton floatingBtn_userInfo;
     List<MainBestMemberModel> models;
     MainBestMemberAdapter adapter;
-    //RetrofitService retrofitService = RetrofitHelper.getRetrofit().create(RetrofitService.class);
 
 
     @Override
@@ -58,9 +57,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         img_addRoom.setOnClickListener(this);
         floatingBtn_userInfo.setOnClickListener(this);
 
-        AppData appData = AppData.getInstance(getApplicationContext());
-        appData.setPREF_ACC_TIME(4000);
-
         bestMemberLayout();
         studyRoomLayout();
 
@@ -71,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         GridLayout gridLayout = findViewById(R.id.gridLayout);
         int i = 0;
         for (; i < 5; i++) {
-            View view = getLayoutInflater().inflate(R.layout.childview_main_study_room, null);
+            View view = getLayoutInflater().inflate(R.layout.listitem_main_study_room, null);
             GridLayout.Spec spec = GridLayout.spec(GridLayout.UNDEFINED, 1.0f);
             GridLayout.LayoutParams lp = new GridLayout.LayoutParams(new ViewGroup.MarginLayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT));
             lp.columnSpec = spec;
@@ -94,41 +90,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         models.add(new MainBestMemberModel("분야"));
         models.add(new MainBestMemberModel("나이"));
 
-        //어댑터 생성시 보냄.
+
         adapter = new MainBestMemberAdapter(models, this);
         viewpager.setPadding(0, 0, 50, 0); //오른쪽에 padding을 줘서 2번째 슬라이더가 살짝 보이게 함
         viewpager.setAdapter(adapter); //어댑터 설정
     }
-
-    /*--------------------------------------------------------------------
-       onClick 이벤트 처리
-     *--------------------------------------------------------------------*/
 
     @Override
     public void onClick(View v) {
         Log.d(TAG,v.getId()+"");
         Log.d(TAG, R.id.floatingBtn_userInfo+"");
         if (v.getId() == R.id.tv_searchBar) { // 검색바
-
             Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
             startActivity(intent);
             overridePendingTransition(R.anim.right_in, R.anim.not_move); // 화면전환 애니메이션
 
-            /*retrofitService.getCategory().enqueue(new Callback<ArrayList<CategoryModel>>() {
-                @Override
-                public void onResponse(Call<ArrayList<CategoryModel>> call, Response<ArrayList<CategoryModel>> response) {
-                    Log.d(TAG, "response");
-                    Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
-                    intent.putExtra("category", response.body()); //현재 존재하는 카테고리 받아서 넘김.
-                    startActivity(intent);
-                    overridePendingTransition(R.anim.right_in, R.anim.not_move); // 화면전환 애니메이션
-                }
-
-                @Override
-                public void onFailure(Call<ArrayList<CategoryModel>> call, Throwable t) {
-                    Log.d(TAG, t.getMessage());
-                }
-            });*/
         } else if (v.getId() == R.id.img_profile) { // 마이페이지 아이콘
             Intent intent = new Intent(getApplicationContext(), MyPageActivity.class);
             startActivity(intent);

@@ -10,7 +10,7 @@
     android:paddingEnd="15dp"
     tools:context=".activity.MainActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/layout_mainTop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,21 +20,26 @@
         <TextView
             android:id="@+id/text_title"
             style="@style/TextMainTitle"
-            android:text="Study with Me!" />
+            android:text="StudyWithMe!"
+            android:textSize="30sp"/>
 
         <ImageView
             android:id="@+id/img_addRoom"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginLeft="15dp"
-            android:background="@drawable/ic_add" />
+            android:background="@drawable/ic_add"
+            android:layout_toStartOf="@id/img_profile"
+            android:layout_alignBottom="@id/text_title"/>
 
         <ImageView
             android:id="@+id/img_profile"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignBottom="@id/text_title"
             android:background="@drawable/ic_account" />
-    </LinearLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -79,6 +84,7 @@
 
                     <TextView
                         style="@style/Text13Bold"
+                        android:layout_marginTop="25dp"
                         android:layout_marginBottom="10dp"
                         android:text="STUDY ROOM" /> <!-- 3-->
 
@@ -87,7 +93,7 @@
                         android:id="@+id/gridLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:columnCount="2"
+                        android:columnCount="1"
                         android:orientation="horizontal" />
                 </LinearLayout>
             </ScrollView>
