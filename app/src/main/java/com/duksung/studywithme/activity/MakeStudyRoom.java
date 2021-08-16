@@ -42,7 +42,7 @@ public class MakeStudyRoom extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_make_study_room);
 
-        img_backToMain = findViewById(R.id.img_backToMain);
+        img_backToMain = findViewById(R.id.iv_back);
         btn_makeStudyRoom = findViewById(R.id.btn_makeStudyRoom);
         et_studyName = findViewById(R.id.et_studyName);
         et_studyNotice = findViewById(R.id.et_studyNotice);
@@ -110,7 +110,7 @@ public class MakeStudyRoom extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == R.id.img_backToMain){             // 뒤로가기 버튼
+        if(v.getId() == R.id.iv_back){             // 뒤로가기 버튼
             //TODO 내용이 채워져있을 때, 사용자에게 정말로 나갈 것인지 확인?
             finish();
         }

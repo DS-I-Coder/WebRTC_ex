@@ -16,7 +16,7 @@
         android:layout_marginBottom="29dp">
 
         <ImageView
-            android:id="@+id/img_backToMain"
+            android:id="@+id/iv_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -25,7 +25,7 @@
             android:background="@drawable/ic_back" />
 
         <TextView
-            android:id="@+id/tv_mainTitle"
+            android:id="@+id/tv_mypage_title"
             style="@style/TextMainTitle"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
