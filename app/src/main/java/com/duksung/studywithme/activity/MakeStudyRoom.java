@@ -3,9 +3,11 @@ package com.duksung.studywithme.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -22,16 +24,17 @@ import com.duksung.studywithme.common.Common;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.lang.reflect.Field;
+
 public class MakeStudyRoom extends AppCompatActivity implements View.OnClickListener, TextWatcher {
     private static String TAG = "MakeStudyRoom";
     private ImageView img_backToMain;
     private EditText et_studyName, et_studyField,et_setStudyPassword;
     private TextView tv_cameraSetting, tv_micSetting, tv_speakerSetting;
     private TextInputEditText et_studyNotice;
-    private Spinner sp_studyField;
+    private Spinner sp_studyCategory;
     private Button btn_makeStudyRoom;
     private RadioButton radioBtn_private;
-    private BottomSheetDialog bottomSheetDialog;
     Boolean chipState = false;
 
     @Override
@@ -64,12 +67,15 @@ public class MakeStudyRoom extends AppCompatActivity implements View.OnClickList
     }
 
     private void spinnerInit(){
-        sp_studyField = findViewById(R.id.sp_studyField);
-        ArrayAdapter<String> a = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item,
-                getResources().getStringArray(R.array.studyFields));
-        a.setDropDownViewResource(android.R.layout.simple_spinner_item);
-        sp_studyField.setDropDownVerticalOffset(Math.round(Common.dipToPixels(this, 34)));
-        sp_studyField.setAdapter(a);
+        sp_studyCategory = findViewById(R.id.sp_studyCategory);
+        sp_studyCategory.setDropDownVerticalOffset(Math.round(Common.dipToPixels(this, 34)));
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.category, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); //custom item 설정가능.
+
+        sp_studyCategory.setAdapter(adapter);
+
     }
     private void radioButtonInit() {
         RadioGroup radioGroup_studyAccess = findViewById(R.id.radioGroup_studyAccess);
@@ -124,7 +130,7 @@ public class MakeStudyRoom extends AppCompatActivity implements View.OnClickList
     }
 
     private void toggleSettingChip(TextView view){
-        if (chipState){
+        if (view.getBackground().getConstantState().equals(getResources().getDrawable(R.drawable.chip_off).getConstantState())){
             // chip이 off상태라면 on으로
             view.setBackground(ContextCompat.getDrawable(this, R.drawable.chip_on));
             view.setTextColor(ContextCompat.getColor(this, R.color.white));
@@ -135,6 +141,7 @@ public class MakeStudyRoom extends AppCompatActivity implements View.OnClickList
             view.setTextColor(ContextCompat.getColor(this, R.color.black));
             chipState = true;
         }
+        Log.d(TAG, chipState+"");
     }
 
     private boolean isAllFilled(){  // 내용이 전부 채워졌는지 확인

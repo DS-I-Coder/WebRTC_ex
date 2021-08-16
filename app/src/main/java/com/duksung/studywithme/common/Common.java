@@ -1,5 +1,6 @@
 package com.duksung.studywithme.common;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
@@ -15,7 +16,9 @@ import java.util.Arrays;
 public class Common {
     // static final 변수 선언
 
-    public static final String BASE_SERVER_URL = "https://192.168.0.21:3000";  // ip주소
+    public static final String TIME_FORMAT = "HH:mm:ss";
+
+    public static final String BASE_SERVER_URL = "http://192.168.0.21:3000";  // ip주소
 //    public static final String BASE_SERVER_URL = "http://192.168.214.1:3000";
 
     public static final String SearchRoomURL = "/mainpage/search";      // 방 검색
@@ -38,4 +41,8 @@ public class Common {
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dipValue, metrics);
     }
 
+    @SuppressLint("DefaultLocale")
+    public static String secToTimeString(int sec){
+        return String.format("%02d:%02d:%02d", sec / 3600, (sec % 3600) / 60, sec % 60);
+    }
 }
