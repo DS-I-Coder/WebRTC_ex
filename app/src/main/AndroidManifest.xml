@@ -51,6 +51,7 @@
         <activity android:name=".activity.ChattingRoomActivity" />
 
         <activity android:name=".activity.MyPageActivity" />
+
         <activity android:name=".activity.RegisterStep2Activity" />
         <activity android:name=".activity.RegisterStep1Activity" />
         <activity android:name=".activity.DataChartActivity" />
@@ -63,14 +64,16 @@
 
 
         <!--메인-->
-        <activity android:name=".activity.MainActivity" />
-        <activity android:name=".activity.MakeStudyRoom"
-            android:windowSoftInputMode="adjustResize">
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <activity android:name=".activity.MakeStudyRoom"
+            android:windowSoftInputMode="adjustResize"/>
 
 
         <!--검색 및 결과 -->
@@ -83,8 +86,7 @@
         </activity>
         <activity android:name=".activity.CreateRoomActivity"></activity>
         <activity android:name=".activity.StudyRoomActivity" />
-        <activity android:name=".activity.EnterChattingRoomActivity" />
-        <activity android:name=".activity.ChattingRoomActivity" />
+
 
 
         <activity
